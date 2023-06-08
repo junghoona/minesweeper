@@ -43,9 +43,14 @@ for x in range(settings.GRID_SIZE):
     for y in range(settings.GRID_SIZE): 
         c = Cell(x, y)
         c.create_btn(center_frame)
-        c.cell_btn.grid(
+        c.cell_btn_obj.grid(
             column=x, row=y
         )
+# Call the label from the Cell class 
+Cell.create_cell_count_label(left_frame) 
+Cell.cell_count_label_obj.place(
+    x=0, y=0 
+)
 
 Cell.randomize_mines()
 
