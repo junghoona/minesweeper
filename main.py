@@ -39,25 +39,15 @@ center_frame.place(
     y=utils.height_prct(25), 
 )
 
-c1 = Cell() 
-c1.create_btn(center_frame)
-c1.cell_btn.place(
-    x=0, y=0 
-)
+for x in range(settings.GRID_SIZE):
+    for y in range(settings.GRID_SIZE): 
+        c = Cell(x, y)
+        c.create_btn(center_frame)
+        c.cell_btn.grid(
+            column=x, row=y
+        )
 
-c2 = Cell() 
-c2.create_btn(center_frame) 
-c2.cell_btn.place(
-    
-)
-
-# # Buttons 
-# btn1 = Button(
-#     center_frame, 
-#     bg='blue',
-#     text='First Button',
-# )
-# btn1.place(x=0, y=0)
+Cell.randomize_mines()
 
 # Run the window 
 root.mainloop()
